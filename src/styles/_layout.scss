@@ -1,0 +1,15 @@
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  flex: 0 0 $sidebarwidth;
+  height: 100vh;
+  overflow: scroll;
+}
+
+.main {
+  flex: 1 1 0%;
+  overflow: scroll;
+}
