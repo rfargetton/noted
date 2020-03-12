@@ -1,17 +1,37 @@
+/** @jsx jsx */
 import React from 'react' ;
-import { Edit, Eye } from 'react-feather' ;
+import { useColorMode, jsx } from 'theme-ui' ;
+import theme from '../../theme/theme.js' ;
+import { Edit, Eye, Trash, Moon, Sun } from 'react-feather' ;
 
-const MainHeader = ({ toggleMode, mode }) => (
-  <div className='main-header'>
-    <div  onClick={toggleMode} 
+const MainHeader = ({ toggleMode, mode, deleteSelectedNote }) => {
+  const [colorMode, setColorMode] = useColorMode() ;
+
+  return (
+    <div className='main-header'
+          sx={{ backgroundColor: 'background'}}>
+      <div  onClick={toggleMode} 
+            className='button' >
+        { mode==='preview' ? ( 
+          <Edit  /> 
+        ) : ( 
+          <Eye /> 
+        )}
+      </div>
+      <div  onClick={deleteSelectedNote} 
+            className='button' >
+        <Trash /> 
+      </div> 
+      <div  onClick={e => {setColorMode(colorMode === 'default' ? 'dark' : 'default')}} 
           className='button' >
-      { mode==='preview' ? ( 
-        <Edit  /> 
-      ) : ( 
-        <Eye /> 
-      )}
+        { colorMode === 'default' ? ( 
+          <Moon  /> 
+        ) : ( 
+          <Sun /> 
+        )}
+      </div> 
     </div>
-  </div>
-)
+  )
+}
 
 export default MainHeader ;

@@ -1,4 +1,6 @@
 import React from 'react';
+import { ThemeProvider } from 'theme-ui' ;
+import theme from '../theme/theme.js' ;
 
 import Sidebar from './Sidebar.js';
 import Main from './Main.js';
@@ -13,7 +15,7 @@ class App extends React.Component {
 
     this.selectNote = this.selectNote.bind(this);
     this.addNote = this.addNote.bind(this);
-    this.deletNote = this.deleteNote.bind(this);
+    this.deleteSelectedNote = this.deleteSelectedNote.bind(this);
     this.editNote = this.editNote.bind(this);
     this.updateSelected = this.updateSelected.bind(this);
   }
@@ -84,10 +86,11 @@ class App extends React.Component {
 
   }
 
-  deleteNote(){
+  deleteSelectedNote(){
     const noteIndex = this._getNoteIndex(this.state.selected.id);
     this.setState((state) => ({
-      notes : [...state.notes.slice(0, noteIndex), ...state.notes.slice(noteIndex + 1)]
+      notes : [...state.notes.slice(0, noteIndex), ...state.notes.slice(noteIndex + 1)],
+      selected : state.notes.length > 0 ? state.notes[noteIndex - 1] : {}
     }), this._commit );
   }
 
@@ -117,15 +120,18 @@ class App extends React.Component {
 
   render(){
     return (
-      <div className="app">
-        <Sidebar  notes={this.state.notes} 
-                  addNote={this.addNote}
-                  deleteNote={this.deleteNote}
-                  selectedID={this.state.selected.id}
-                  selectNote={this.selectNote}/>
-        <Main     note={this.state.selected}
-                  updateSelected={this.updateSelected}/>
-      </div>
+      <ThemeProvider theme={theme}>
+        <div className="app">
+          <Sidebar  notes={this.state.notes} 
+                    addNote={this.addNote}
+                    deleteSelectedNote={this.deleteSelectedNote}
+                    selectedID={this.state.selected.id}
+                    selectNote={this.selectNote}/>
+          <Main     note={this.state.selected}
+                    deleteSelectedNote={this.deleteSelectedNote}
+                    updateSelected={this.updateSelected}/>
+        </div>
+      </ThemeProvider>
     );
   }
 }

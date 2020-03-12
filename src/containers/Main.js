@@ -22,8 +22,9 @@ class Main extends React.Component {
   render(){
     return (
       <main className='main'>
-        <MainHeader  toggleMode={this.toggleMode}
-                     mode={this.state.mode}/>
+        <MainHeader toggleMode={this.toggleMode}
+                    deleteSelectedNote={this.props.deleteSelectedNote}
+                    mode={this.state.mode}/>
         <div className={this.state.mode}> 
           {this.state.mode ==='preview' 
             ? <ReactMarkdown source={this.props.note.text} />
