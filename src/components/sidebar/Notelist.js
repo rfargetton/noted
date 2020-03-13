@@ -1,33 +1,38 @@
 import React from 'react';
+import styled from 'styled-components' ;
+
+import NotelistItem from './NotelistItem.js';
+
+const Wrapper = styled.ul`
+  margin-top: 48px;
+  list-style: none;
+  padding: 0;
+`
+const Item = styled(NotelistItem)`
+  &:hover {
+    background-color: ${props => props.id === props.selectedID ? 'gray' : 'lightgray'};
+  }
+  background-color: ${props => props.id === props.selectedID ? 'gray' : 'white'};
+  color: ${props => props.id === props.selectedID ? 'white' : 'gray'};
+`
 
 const Notelist = ({ notes, selectNote, selectedID }) => {
 
   const list = notes.map(note =>
-    <NotelistItem id={note.id} 
-                  key={note.id} 
-                  text={note.text} 
-                  date={note.date}
-                  selectedID={selectedID}
-                  selectNote={selectNote}/>
+    <Item id={note.id} 
+          key={note.id} 
+          text={note.text} 
+          date={note.date}
+          selectedID={selectedID}
+          selectNote={selectNote}/>
   );
 
   return (
-    <ul className="note-list">{list}</ul>
+    <Wrapper>
+      {list}
+    </Wrapper>
   );
 
-}
-
-const NotelistItem = ({ id, text, date, selectNote, selectedID }) => {
-  const noteTitle = text.match(/^(.*)/g)[0].replace(/#/, '');
-  return (
-    <li className={`note-list-item ${id === selectedID ? 'selected' : ''}`}
-        onClick={function(){selectNote(id)}}>
-      <div className='note-title'>{noteTitle}</div>
-      <div className='note-info'>
-        <div className='date'>{date}</div>
-      </div>
-    </li>
-  );
 }
 
 export default Notelist;

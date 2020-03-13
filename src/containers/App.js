@@ -1,9 +1,15 @@
 import React from 'react';
 import { ThemeProvider } from 'theme-ui' ;
 import theme from '../theme/theme.js' ;
+import styled from 'styled-components' ;
 
 import Sidebar from './Sidebar.js';
 import Main from './Main.js';
+
+const Container = styled.div`
+  display: flex;
+  height: 100vh;
+`
 
 class App extends React.Component {
   constructor(props){
@@ -121,7 +127,7 @@ class App extends React.Component {
   render(){
     return (
       <ThemeProvider theme={theme}>
-        <div className="app">
+        <Container>
           <Sidebar  notes={this.state.notes} 
                     addNote={this.addNote}
                     deleteSelectedNote={this.deleteSelectedNote}
@@ -130,7 +136,7 @@ class App extends React.Component {
           <Main     note={this.state.selected}
                     deleteSelectedNote={this.deleteSelectedNote}
                     updateSelected={this.updateSelected}/>
-        </div>
+        </Container>
       </ThemeProvider>
     );
   }
