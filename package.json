@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "dayjs": "^1.8.23",
     "node-sass": "^4.13.1",
+    "raw.macro": "^0.3.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-feather": "^2.0.3",

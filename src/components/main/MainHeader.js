@@ -1,8 +1,6 @@
-import React from 'react' ;
-import { useColorMode } from 'theme-ui' ;
-import theme from '../../theme/theme.js' ;
+import React, { useContext } from 'react' ;
+import styled, { ThemeContext } from 'styled-components' ;
 import { Edit, Eye, Trash, Moon, Sun } from 'react-feather' ;
-import styled from 'styled-components' ;
 
 import Button from '../Button.js';
 
@@ -10,43 +8,52 @@ const Wrapper = styled.div`
   height: 48px;
   position: fixed;
   padding: 9px 18px;
-  box-sizing: border-box;
   width: calc(100% - 300px);
-  background-color: white;
+  color: ${props => props.theme.text};
+  background-color: ${props => props.theme.background};
   box-shadow: 0px 4px 2px -2px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: space-between;
+`
+
+const NoteTools = styled.div`
   display: flex;
 `
 
 const AlertButton = styled(Button)`
-  && {
-    color: tomato;
-  }
+  color: tomato;
 `
 const ThemeButton = styled(Button)`
-  justify-self: end;
+  align-self: end;
 `
-const MainHeader = ({ toggleMode, mode, deleteSelectedNote }) => {
-  const [colorMode, setColorMode] = useColorMode() ;
+const MainHeader = ({ toggleMode, toggleTheme, mode, deleteSelectedNote }) => {
+
+  // getting the theme
+  const themeContext = useContext(ThemeContext) ;
 
   return (
     <Wrapper>
-      <Button handleClick={toggleMode} >
-        { mode==='preview' ? ( 
-          <Edit  /> 
-        ) : ( 
-          <Eye /> 
-        )}
-      </Button>
-      <AlertButton handleClick={deleteSelectedNote} >
-        <Trash /> 
-      </AlertButton> 
-      <Button handleClick={e => {setColorMode(colorMode === 'default' ? 'dark' : 'default')}} >
-        { colorMode === 'default' ? ( 
-          <Moon  /> 
-        ) : ( 
-          <Sun /> 
-        )}
-      </Button> 
+      <NoteTools>
+        <Button handleClick={toggleMode} >
+          { mode==='preview' ? ( 
+            <Edit  /> 
+          ) : ( 
+            <Eye /> 
+          )}
+        </Button>
+        <AlertButton handleClick={deleteSelectedNote} >
+          <Trash /> 
+        </AlertButton> 
+      </NoteTools>
+      <div>
+        <ThemeButton handleClick={toggleTheme}>
+          { themeContext.name === 'dark' ? ( 
+            <Sun  /> 
+          ) : ( 
+            <Moon /> 
+          )}
+        </ThemeButton> 
+      </div>
     </Wrapper>
   )
 }

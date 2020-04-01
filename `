@@ -5,9 +5,9 @@ import TextareaAutosize from 'react-textarea-autosize';
 
 const Wrapper = styled.div`
   margin-top: 48px;
-  padding: 28px 58px;
+  padding: 18px;
   textarea {
-    font-family: 'Monaco', monospace;
+    font-family: monospace;
     border: 0;
     resize: none;
     font-size: 1rem;
@@ -22,24 +22,14 @@ const ThemedTextarea = styled(TextareaAutosize)`
 class Editor extends React.Component {
   constructor(props){
     super(props);
-    this.myRef = React.createRef();
-  }
-
-  // Autofocus after component is mounted
-  componentDidMount() {
-    this.myRef.current._ref.focus();
-  }
-
-  // Autofocus every time the component is updated
-  componentDidUpdate() {
-    this.myRef.current._ref.focus();
+    this.valueRef = React.createRef();
   }
 
   render(){
     return (
       <Wrapper>
         <ThemedTextarea value={this.props.text}
-                        ref={this.myRef}
+          onMouseEnter={ () => { this.valueRef.textarea.focus()} }
                         onChange={this.props.handleChange} />
       </Wrapper>
     )

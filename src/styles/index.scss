@@ -1,12 +1,10 @@
-@import 'variables';
-@import 'layout';
-@import 'sidebar';
-@import 'main';
-
 body {
-    font-family: $sans-serif;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin: 0;
+}
+
+* {
+  box-sizing: border-box;
 }

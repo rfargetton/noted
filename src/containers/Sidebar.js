@@ -8,6 +8,7 @@ const Wrapper = styled.aside`
   flex: 0 0 300px;
   height: 100vh;
   overflow: scroll;
+  border-right: 1px solid lightgray;
 `
 
 class NoteSidebar extends React.Component {
@@ -18,6 +19,7 @@ class NoteSidebar extends React.Component {
         <SidebarHeader addNote={this.props.addNote}/>
         <Notelist     notes={this.props.notes} 
                       selectedID={this.props.selectedID}
+                      deleteNote={this.props.deleteNote}
                       selectNote={this.props.selectNote}/>
       </Wrapper>
     );

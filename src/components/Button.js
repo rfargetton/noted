@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   width: 30px;
-  color: black;
-  background-color: white;
+  color: ${props => props.theme.text};
+  background-color: ${props => props.theme.background};
   height: 30px;
   display: flex;
   padding: 4px;
@@ -13,6 +13,7 @@ const Wrapper = styled.div`
   border-radius: 8px;
   margin-right: 9px;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
 `
 
 export default (props) => {

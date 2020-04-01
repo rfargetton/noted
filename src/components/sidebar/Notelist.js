@@ -12,11 +12,11 @@ const Item = styled(NotelistItem)`
   &:hover {
     background-color: ${props => props.id === props.selectedID ? 'gray' : 'lightgray'};
   }
-  background-color: ${props => props.id === props.selectedID ? 'gray' : 'white'};
-  color: ${props => props.id === props.selectedID ? 'white' : 'gray'};
+  background-color: ${props => props.id === props.selectedID ? props.theme.text : props.theme.background};
+  color: ${props => props.id === props.selectedID ? props.theme.background : props.theme.text};
 `
 
-const Notelist = ({ notes, selectNote, selectedID }) => {
+const Notelist = ({ notes, selectNote, deleteNote, selectedID }) => {
 
   const list = notes.map(note =>
     <Item id={note.id} 
@@ -24,6 +24,7 @@ const Notelist = ({ notes, selectNote, selectedID }) => {
           text={note.text} 
           date={note.date}
           selectedID={selectedID}
+          deleteNote={deleteNote}
           selectNote={selectNote}/>
   );
 
