@@ -148,7 +148,7 @@ class App extends React.Component {
             <Sidebar  notes={this.state.notes} 
                       addNote={this.addNote}
                       deleteSelectedNote={this.deleteSelectedNote}
-                      selectedID={!this.state.selected ? -1 : this.state.selected.id} 
+                      selected={this.state.selected} 
                       deleteNote={this.deleteNote}
                       selectNote={this.selectNote}/>
             <Main     note={this.state.selected}

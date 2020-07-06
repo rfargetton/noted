@@ -18,7 +18,7 @@ class NoteSidebar extends React.Component {
       <Wrapper>
         <SidebarHeader addNote={this.props.addNote}/>
         <Notelist     notes={this.props.notes} 
-                      selectedID={this.props.selectedID}
+                      selectedID={this.props.selected && this.props.selected.id}
                       deleteNote={this.props.deleteNote}
                       selectNote={this.props.selectNote}/>
       </Wrapper>
