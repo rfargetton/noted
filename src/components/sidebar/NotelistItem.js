@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components' ;
-import { Trash } from 'react-feather' ;
-import Button from '../Button.js' ;
 
 const Wrapper = styled.li`
   color: ${props => props.theme.text};
@@ -11,14 +9,6 @@ const Wrapper = styled.li`
 `
 const Date = styled.div`
   font-size: 0.8rem;
-`
-
-const DeleteButton = styled(Button)`
-  fill: red;
-  display: none;
-  ${Wrapper}:hover & {
-    display: flex;
-  }
 `
 
 const NotelistItem = ({ id, text, date, selectNote, deleteNote, selectedID, className }) => {
