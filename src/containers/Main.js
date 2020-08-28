@@ -8,7 +8,15 @@ import Empty from '../components/main/Empty.js' ;
 
 const Wrapper = styled.div`
   width: 100%;
-  overflow: scroll;
+`
+const ContentWrapper = styled.div`
+  margin-top: 3rem;
+  padding: 2rem;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  width: calc(100% - 300px);
+  overflow: auto;
 `
 
 class Main extends React.Component {
@@ -34,13 +42,15 @@ class Main extends React.Component {
                     toggleTheme={this.props.toggleTheme}
                     deleteSelectedNote={this.props.deleteSelectedNote}
                     mode={this.state.mode}/>
-        {!this.props.note 
-          ? <Empty />
-          : (this.state.mode ==='preview' 
-            ? <Previewer text={this.props.note.text} />
-            : <Editor text={this.props.note ? this.props.note.text : fillerMessage} handleChange={this.props.updateSelected} />
-          )
-        }
+        <ContentWrapper>
+          {!this.props.note 
+            ? <Empty />
+            : (this.state.mode ==='preview' 
+              ? <Previewer text={this.props.note.text} />
+              : <Editor text={this.props.note ? this.props.note.text : fillerMessage} handleChange={this.props.updateSelected} />
+            )
+          }
+      </ContentWrapper>
 
       </Wrapper>
     );

@@ -5,15 +5,16 @@ import { Edit, Eye, Trash, Moon, Sun } from 'react-feather' ;
 import Button from '../Button.js';
 
 const Wrapper = styled.div`
-  height: 48px;
+  height: 3rem;
   position: fixed;
-  padding: 9px 18px;
+  padding: 0.5rem 1rem;
   width: calc(100% - 300px);
   color: ${props => props.theme.text};
   background-color: ${props => props.theme.background};
   box-shadow: 0px 4px 2px -2px rgba(0, 0, 0, 0.25);
   display: flex;
   justify-content: space-between;
+  z-index: 999;
 `
 
 const NoteTools = styled.div`

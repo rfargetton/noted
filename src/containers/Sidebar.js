@@ -7,8 +7,7 @@ import SidebarHeader from '../components/sidebar/SidebarHeader.js';
 const Wrapper = styled.aside`
   flex: 0 0 300px;
   height: 100vh;
-  overflow: scroll;
-  border-right: 1px solid lightgray;
+  overflow: auto;
 `
 
 class NoteSidebar extends React.Component {

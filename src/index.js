@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './containers/App';
+import "typeface-inter" ;
+import "typeface-ibm-plex-mono" ;
 import * as serviceWorker from './serviceWorker';
 
 

@@ -5,10 +5,19 @@ import styled from 'styled-components' ;
 import CodeBlock from './CodeBlock.js' ;
 
 const Wrapper = styled.div`
-  margin-top: 48px;
-  padding: 18px;
   img {
     width: 100%
+  }
+  blockquote {
+    background-color: lightgray;
+    border-radius: 0.5rem;
+    margin: 0;
+    overflow: hidden;
+    p {
+      padding: 1rem;
+      margin: 0;
+      border-left: 6px solid ${props => props.theme.text};
+    }
   }
 `
 

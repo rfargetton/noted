@@ -4,9 +4,16 @@ import styled from 'styled-components' ;
 import NotelistItem from './NotelistItem.js';
 
 const Wrapper = styled.ul`
-  margin-top: 48px;
+  margin-top: 3rem;
+  margin-bottom: 0; 
   list-style: none;
   padding: 0;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  width: 300px;
+  overflow: auto;
+  border-right: 1px solid lightgray;
 `
 const Item = styled(NotelistItem)`
   &:hover {
@@ -18,19 +25,22 @@ const Item = styled(NotelistItem)`
 
 const Notelist = ({ notes, selectNote, deleteNote, selectedID }) => {
 
-  const list = notes.map(note =>
-    <Item id={note.id} 
-          key={note.id} 
-          text={note.text} 
-          date={note.date}
-          selectedID={selectedID}
-          deleteNote={deleteNote}
-          selectNote={selectNote}/>
-  );
 
   return (
     <Wrapper>
-      {list}
+      {notes.map(note => {
+        return ( 
+          <Item 
+            id={note.id} 
+            key={note.id} 
+            text={note.text} 
+            date={note.date}
+            selectedID={selectedID}
+            deleteNote={deleteNote}
+            selectNote={selectNote}
+          /> 
+        )
+      })}
     </Wrapper>
   );
 

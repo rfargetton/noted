@@ -4,14 +4,16 @@ import styled from 'styled-components' ;
 import TextareaAutosize from 'react-textarea-autosize';
 
 const Wrapper = styled.div`
-  margin-top: 48px;
-  padding: 28px 58px;
   textarea {
-    font-family: 'Monaco', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     border: 0;
     resize: none;
     font-size: 1rem;
     width: 100%;
+  }
+  textarea:focus {
+    outline: none !important;
+  }
 `
 
 const ThemedTextarea = styled(TextareaAutosize)`
