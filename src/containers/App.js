@@ -35,7 +35,7 @@ class App extends React.Component {
   // Lifecycle Hooks
   componentDidMount(){
     this.setState({
-      selected : this.state.notes.length > 0 ? this.state.notes[this.state.notes.length - 1] : null 
+      selected : localStorage.getItem("selectedId") ? this._getNote(JSON.parse(localStorage.getItem('selectedId'))) : this.state.notes[this.state.notes.length - 1]
     });
 
     //window.addEventListener('beforeunload', this.editNote );
@@ -131,6 +131,7 @@ class App extends React.Component {
       this.setState({
         selected : this._getNote(id)
       });
+      localStorage.setItem("selectedId", JSON.stringify(id));
     }
   }
 

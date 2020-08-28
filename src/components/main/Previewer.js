@@ -10,14 +10,14 @@ const Wrapper = styled.div`
     width: 100%
   }
   blockquote {
-    background-color: lightgray;
+    background-color: ${props => props.theme.highlightBg};
     border-radius: 0.5rem;
     margin: 0;
     overflow: hidden;
     p {
       padding: 1rem;
       margin: 0;
-      border-left: 6px solid ${props => props.theme.text};
+      border-left: 6px solid ${props => props.theme.selected};
     }
   }
 `

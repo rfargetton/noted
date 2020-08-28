@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   position: fixed;
   padding: 0.5rem 1rem;
   color: ${props => props.theme.text};
-  background-color: ${props => props.theme.background};
+  background-color: ${props => props.theme.bg};
   width: 300px;
   box-shadow: 4px 4px 2px -2px rgba(0, 0, 0, 0.25);
   z-index: 999;

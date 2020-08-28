@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   padding: 0.5rem 1rem;
   width: calc(100% - 300px);
   color: ${props => props.theme.text};
-  background-color: ${props => props.theme.background};
+  background-color: ${props => props.theme.bg};
   box-shadow: 0px 4px 2px -2px rgba(0, 0, 0, 0.25);
   display: flex;
   justify-content: space-between;

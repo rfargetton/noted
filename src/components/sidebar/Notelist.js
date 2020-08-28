@@ -13,14 +13,14 @@ const Wrapper = styled.ul`
   top: 0;
   width: 300px;
   overflow: auto;
-  border-right: 1px solid lightgray;
+  border-right: 1px solid ${props => props.theme.highlightBg};
 `
 const Item = styled(NotelistItem)`
   &:hover {
-    background-color: ${props => props.id === props.selectedID ? 'gray' : 'lightgray'};
+    background-color: ${props => props.id === props.selectedID ? props.theme.selected : props.theme.highlightBg};
   }
-  background-color: ${props => props.id === props.selectedID ? props.theme.text : props.theme.background};
-  color: ${props => props.id === props.selectedID ? props.theme.background : props.theme.text};
+  color: ${props => props.theme.text};
+  background-color: ${props => props.id === props.selectedID ? props.theme.selected : props.theme.bg};
 `
 
 const Notelist = ({ notes, selectNote, deleteNote, selectedID }) => {
