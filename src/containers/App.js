@@ -114,11 +114,11 @@ class App extends React.Component {
 
   }
 
-  updateSelected(e){
+  updateSelected(value){
     this.setState({
       selected : {
         id : this.state.selected.id,
-        text : e.target.value,
+        text : value,
         date : this.state.selected.date
       }
     });

@@ -5,6 +5,7 @@ import styled from 'styled-components' ;
 import CodeBlock from './CodeBlock.js' ;
 
 const Wrapper = styled.div`
+  padding: 2rem;
   img {
     width: 100%
   }

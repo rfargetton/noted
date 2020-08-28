@@ -11,7 +11,6 @@ const Wrapper = styled.div`
 `
 const ContentWrapper = styled.div`
   margin-top: 3rem;
-  padding: 2rem;
   position: absolute;
   bottom: 0;
   top: 0;

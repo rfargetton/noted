@@ -1,9 +1,16 @@
 import React from 'react' ;
 import styled from 'styled-components' ;
+import {Controlled as CodeMirror} from 'react-codemirror2' ;
+import 'codemirror/lib/codemirror.css';
+import 'codemirror/theme/nord.css';
 
-import TextareaAutosize from 'react-textarea-autosize';
+require('codemirror/mode/gfm/gfm');
+require('codemirror/mode/javascript/javascript');
 
 const Wrapper = styled.div`
+  background-color: #2E3440;
+  padding: 2rem;
+  min-height: 100%;
   textarea {
     font-family: 'IBM Plex Mono', monospace;
     border: 0;
@@ -14,35 +21,40 @@ const Wrapper = styled.div`
   textarea:focus {
     outline: none !important;
   }
+  .CodeMirror {
+    font-family: 'IBM Plex Mono', monospace;
+    height: 100%;
+  }
 `
 
-const ThemedTextarea = styled(TextareaAutosize)`
-  color: ${props => props.theme.text};
-  background-color: ${props => props.theme.background};
-`
+const options = {
+  mode: "gfm",
+  showCursorWhenSelecting: true,
+  lineWrapping: true,
+  theme: "nord"
+}
 
 class Editor extends React.Component {
-  constructor(props){
-    super(props);
-    this.myRef = React.createRef();
-  }
-
-  // Autofocus after component is mounted
-  componentDidMount() {
-    this.myRef.current._ref.focus();
-  }
-
-  // Autofocus every time the component is updated
-  componentDidUpdate() {
-    this.myRef.current._ref.focus();
-  }
 
   render(){
     return (
       <Wrapper>
-        <ThemedTextarea value={this.props.text}
-                        ref={this.myRef}
-                        onChange={this.props.handleChange} />
+        <CodeMirror
+          value={this.props.text}
+          options={options}
+          onChange={(editor, data, value) => { 
+            console.log("controlled", {value})
+          }}
+          onBeforeChange={(editor, data, value) => {
+            this.props.handleChange(value)
+          }}
+          editorDidMount={editor => {
+            setTimeout(() => {
+              editor.focus()
+            }, 0)
+            editor.setCursor(0);
+          }}
+        />
       </Wrapper>
     )
   }

@@ -16,9 +16,6 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
-  textarea {
-    font : Monaco, monospace;
-  }
 `
 
 export default GlobalStyle ;
