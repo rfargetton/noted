@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import NoteList from '../components/sidebar/NoteList.js';
+import NoteList from '../components/sidebar/Notelist.js';
 import SidebarHeader from '../components/sidebar/SidebarHeader.js';
 
 const Wrapper = styled.aside`
