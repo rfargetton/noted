@@ -30,17 +30,19 @@ const Themes = {
     sidebarBg: nord.nord4,
     highlightBg: lighten(0.1, nord.nord6),
     selected: nord.nord8,
-    text: nord.nord3,
+    text: nord.nord0,
+    link: nord.nord10,
     comment: nord.nord4,
     date: nord.nord10
   },
   dark : {
     name: 'dark',
     bg: nord.nord0,
-    sidebarBg: darken(0.1, nord.nord0),
+    sidebarBg: darken(0.05, nord.nord0),
     highlightBg: nord.nord1,
     selected: nord.nord10,
     text: nord.nord6,
+    link: nord.nord8,
     comment: nord.nord3,
     date: nord.nord8
   }
