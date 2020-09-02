@@ -80,6 +80,7 @@ const Wrapper = styled.div`
     background-color: ${props => props.theme.sidebarBg};
     padding: 0.25rem ;
     border-radius: 0.25rem;
+    white-space: pre-wrap !important;
   }
 `
 
