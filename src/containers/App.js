@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components' ;
 import dayjs from 'dayjs' ;
+import { Helmet } from "react-helmet";
 
 import Themes from '../styles/Themes.js' ;
 import GlobalStyle from '../styles/Global.js' ;
@@ -145,17 +146,20 @@ class App extends React.Component {
     return (
       <ThemeProvider theme={this.state.theme === 'dark' ? Themes.dark : Themes.light}>
         <GlobalStyle />
+        <Helmet>
+          <title>Noted</title>
+        </Helmet>
         <Wrapper>
-            <Sidebar  notes={this.state.notes} 
-                      addNote={this.addNote}
-                      deleteSelectedNote={this.deleteSelectedNote}
-                      selected={this.state.selected} 
-                      deleteNote={this.deleteNote}
-                      selectNote={this.selectNote}/>
-            <Main     note={this.state.selected}
-                      deleteSelectedNote={this.deleteSelectedNote}
-                      toggleTheme={this.toggleTheme}
-                      updateSelected={this.updateSelected}/>
+          <Sidebar  notes={this.state.notes} 
+                    addNote={this.addNote}
+                    deleteSelectedNote={this.deleteSelectedNote}
+                    selected={this.state.selected} 
+                    deleteNote={this.deleteNote}
+                    selectNote={this.selectNote}/>
+          <Main     note={this.state.selected}
+                    deleteSelectedNote={this.deleteSelectedNote}
+                    toggleTheme={this.toggleTheme}
+                    updateSelected={this.updateSelected}/>
         </Wrapper>
       </ThemeProvider>
     );
