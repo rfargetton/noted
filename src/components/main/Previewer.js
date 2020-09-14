@@ -6,8 +6,8 @@ import CodeBlock from './CodeBlock.js' ;
 
 const Wrapper = styled.div`
   padding: 2rem;
+  line-height: 1.5;
   p {
-    line-height: 1.5;
     img {
     max-width: 100%;
     display: block;
@@ -64,8 +64,10 @@ const Wrapper = styled.div`
   h2, h3, h4, h5, h6 {
     margin-top: 2rem;
     margin-bottom: 1rem;
+    line-height: 1.2;
   }
   h1 {
+    line-height: 1.2;
     margin-top: 0;
     margin-bottom: 1rem;
     &:after {
