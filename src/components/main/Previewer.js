@@ -6,9 +6,14 @@ import CodeBlock from './CodeBlock.js' ;
 
 const Wrapper = styled.div`
   padding: 2rem;
-  img {
-    width: 100%;
+  p {
+    line-height: 1.5;
+    img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
     border-radius: 0.5rem;
+    }
   }
   a {
    color: ${props => props.theme.link};
